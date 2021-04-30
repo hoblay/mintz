@@ -40,7 +40,9 @@ const BackgroundForm = () => {
         {step === 10 && <Finish />}
 
         <button
-          className="btn btn-primary btn-block p-5 btn-next"
+          className={`btn btn-primary btn-block p-5 btn-next ${
+            step === 10 && 'd-none'
+          }`}
           onClick={() => setStep(step + 1)}
         >
           Save and continue to next page

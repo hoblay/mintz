@@ -1,0 +1,4 @@
+# Ignore artifacts:
+build
+
+src/components/Employment.js
