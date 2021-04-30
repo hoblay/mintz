@@ -277,3 +277,28 @@ code {
 .bg-grey {
   background-color: #dbdbdb;
 }
+
+.id-picture {
+  border-radius: 10px;
+  padding: 5px 15px;
+  background-color: #fafafa;
+  margin: 6px 6px 0 0;
+  position: relative;
+
+  .cross {
+    color: rgba(238, 119, 0, 1);
+    font-size: 1.7em;
+  }
+
+  .doc-file {
+    margin-right: -10px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.thanks-text {
+  font-size: 1.2em;
+}

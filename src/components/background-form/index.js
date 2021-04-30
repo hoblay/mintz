@@ -8,6 +8,7 @@ import Employment from './Employment';
 import Professional from './Professional';
 import Reference from './Reference';
 import FormSteps from './steps/FormSteps';
+import Finish from './Finish';
 import Signature from './Signature';
 import Subject from './Subject';
 
@@ -36,6 +37,7 @@ const BackgroundForm = () => {
         {step === 7 && <EidVerification />}
         {step === 8 && <Signature />}
         {step === 9 && <Documents />}
+        {step === 10 && <Finish />}
 
         <button
           className="btn btn-primary btn-block p-5 btn-next"
