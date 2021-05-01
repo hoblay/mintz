@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import mintz from '../../assets/mintz.png';
 import Criminal from './Criminal';
 import Documents from './Documents';
@@ -11,10 +11,18 @@ import FormSteps from './steps/FormSteps';
 import Finish from './Finish';
 import Signature from './Signature';
 import Subject from './Subject';
+import Attention from '../Attention';
 
-const BackgroundForm = () => {
+import EidPopup from '../EidPopup';
+
+const BackgroundForm = (props) => {
   const [step, setStep] = useState(1);
+  const [showAttention, setShowAttention] = useState(false);
+  const [showEid, setShowEid] = useState(false);
 
+  useEffect(() => {
+    setStep(props.step);
+  }, [props.step]);
   return (
     <>
       <div className="col bg-primary left-sidebar overflow-hidden pe-5">
@@ -39,10 +47,45 @@ const BackgroundForm = () => {
         {step === 9 && <Documents />}
         {step === 10 && <Finish />}
 
+        <Attention
+          //show={modalShow}
+          show={showAttention ? true : false}
+          setShow={(show) => setShowAttention(show)}
+          setStep={(step) => setStep(step)}
+          changeSlide={(slide) => props.changeSlide(slide)}
+        />
+
+        <EidPopup
+          show={showEid ? true : false}
+          setShow={(show) => setShowEid(show)}
+          setStep={(step) => setStep(step)}
+          changeSlide={(slide) => props.changeSlide(slide)}
+        />
+
         <button
           className={`btn btn-primary btn-block p-5 btn-next ${
-            step === 10 && 'd-none'
+            step != 6 && 'd-none'
           }`}
+          onClick={() => {
+            setShowAttention(true);
+          }}
+        >
+          Save and continue to next page
+        </button>
+        <button
+          className={`btn btn-primary btn-block p-5 btn-next ${
+            step != 7 && 'd-none'
+          }`}
+          onClick={() => {
+            setShowEid(true);
+          }}
+        >
+          Save and continue to next page
+        </button>
+        <button
+          className={`btn btn-primary btn-block p-5 btn-next ${
+            step === 6 && 'd-none'
+          } ${step === 10 && 'd-none'} ${step === 7 && 'd-none'}`}
           onClick={() => setStep(step + 1)}
         >
           Save and continue to next page

@@ -105,7 +105,7 @@ code {
 }
 
 .modal-backdrop {
-  background-color: rgba(0, 43, 54, 1);
+  background-color: rgba(0, 43, 54, 0.8);
   //background-color: red!important;
 }
 .modal-backdrop.show {
@@ -114,6 +114,8 @@ code {
 
 .modal-content {
   border-radius: 20px;
+  width: 75%;
+  margin: auto;
 }
 .btn {
   font-weight: 600;
@@ -301,4 +303,17 @@ code {
 
 .thanks-text {
   font-size: 1.2em;
+}
+
+.modal-eid {
+  padding: 50px;
+}
+
+.modal-eid button {
+  display: block;
+  width: 40%;
+}
+
+.opt {
+  opacity: 0.5;
 }

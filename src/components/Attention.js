@@ -19,13 +19,21 @@ const Attention = (props) => {
             />
             <div className="d-inline-flex flex-column">
               <button
-                onClick={() => props.changeSlide(3)}
+                onClick={() => {
+                  props.changeSlide(3);
+                  props.setShow(false);
+                  props.setStep(7);
+                }}
                 className="btn btn-primary text-uppercase ps-4 pe-4 pt-2 pb-2"
               >
                 Proceed
               </button>
               <button
-                onClick={() => props.changeSlide(1)}
+                onClick={() => {
+                  props.changeSlide(3);
+                  props.setShow(false);
+                  props.setStep(6);
+                }}
                 className="btn btn-outline-primary text-uppercase ps-4 pe-4 pt-2 pb-2 mt-2 mb-2"
               >
                 Decline
@@ -56,14 +64,6 @@ const Attention = (props) => {
               egestas velit in, elementum velit. Sed sit amet posuere mi. Mauris
               et viverra lectus. vulputate bibendum. Morbi feugiat purus turpis,
               ut pellentesque libero tristique ut.{' '}
-            </p>
-
-            <p>
-              Nunc vel fermentum massa. Vestibulum congue hendrerit erat, et
-              mattis urna mattis vitae. Morbi porta elementum purus et pulvinar.
-              Vivamus vel facilisis augue. Mauris eu interdum erat, sit amet
-              semper dolor aliquam ante ut, porttitor metus. Integer eu purus eu
-              dolor tempus hendrerit.{' '}
             </p>
           </div>
         </div>

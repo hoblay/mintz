@@ -23,8 +23,25 @@ const Education = () => {
         Aliquam porta risus vel rhoncus vehicula. Aliquam porta risus vel
         rhoncus vehicula. Aliquam porta risus vel rhoncus vehicula.{' '}
       </p>
+      <div className={`card p-4 ${form && 'd-none'}`}>
+        <h4 className="mb-4">Current Status</h4>
+        <div className="d-flex flex-column w-50 mx-auto">
+          <button
+            className="btn btn-primary mb-3 text-uppercase p-3"
+            onClick={() => setForm(true)}
+          >
+            Yes, i have
+          </button>
+          <button
+            className="btn btn-secondary text-uppercase mb-3 p-3"
+            onClick={() => setForm(false)}
+          >
+            No, i haven't
+          </button>
+        </div>
+      </div>
 
-      <div className="card p-4">
+      <div className={`card p-4 ${!form && 'd-none'}`}>
         <h4 className="mb-4">Current Status</h4>
         <div className="row">
           <div className="col-md-6">
@@ -37,7 +54,9 @@ const Education = () => {
           </div>
           <div className="col-md-6">
             <button
-              className="btn btn-secondary btn-block w-100 text-uppercase py-3"
+              className={`btn btn-secondary btn-block w-100 text-uppercase py-3 ${
+                form && 'opt'
+              }`}
               onClick={() => setForm(false)}
             >
               No, i haven't
