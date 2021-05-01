@@ -14,11 +14,13 @@ import Subject from './Subject';
 import Attention from '../Attention';
 
 import EidPopup from '../EidPopup';
+import Forgot from '../Forgot';
 
 const BackgroundForm = (props) => {
   const [step, setStep] = useState(1);
   const [showAttention, setShowAttention] = useState(false);
   const [showEid, setShowEid] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
 
   useEffect(() => {
     setStep(props.step);
@@ -45,7 +47,7 @@ const BackgroundForm = (props) => {
         {step === 7 && <EidVerification />}
         {step === 8 && <Signature />}
         {step === 9 && <Documents />}
-        {step === 10 && <Finish />}
+        {step === 10 && <Finish setShow={(show) => setShowForgot(show)} />}
 
         <Attention
           //show={modalShow}
@@ -58,6 +60,12 @@ const BackgroundForm = (props) => {
         <EidPopup
           show={showEid ? true : false}
           setShow={(show) => setShowEid(show)}
+          setStep={(step) => setStep(step)}
+          changeSlide={(slide) => props.changeSlide(slide)}
+        />
+        <Forgot
+          show={showForgot ? true : false}
+          setShow={(show) => setShowForgot(show)}
           setStep={(step) => setStep(step)}
           changeSlide={(slide) => props.changeSlide(slide)}
         />

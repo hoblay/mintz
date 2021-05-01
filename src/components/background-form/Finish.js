@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
  * @function Finish
  **/
 
-const Finish = () => {
+const Finish = (props) => {
   return (
     <div>
       <h2>Thank you!</h2>
@@ -29,7 +29,12 @@ const Finish = () => {
         <button className="btn btn-secondary btn-block text-uppercase mb-3 p-3">
           Email me this confirmation
         </button>
-        <button className="btn btn-primary btn-block mb-3 text-uppercase p-3">
+        <button
+          className="btn btn-primary btn-block mb-3 text-uppercase p-3"
+          onClick={() => {
+            props.setShow(true);
+          }}
+        >
           Finish
         </button>
       </div>
